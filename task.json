@@ -1,0 +1,14 @@
+[
+  {
+    "name": "db_check",
+    "image": "dockermaks/db_check:1.2",
+    "cpu": 256,
+    "memory": 256,
+    "essential": true,
+    "environment": [
+          {"name": "USER_DB", "value": "test"},
+          {"name": "PASS_DB", "value": "test"},
+          {"name": "HOSTNAME_DB", "value": "test"}
+        ]
+  }
+]

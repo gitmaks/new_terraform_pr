@@ -1,0 +1,17 @@
+This file includes only general description of the project.
+The main configuration of tf project is in main.tf file;
+task.tf file was created for ECS stack.
+main.tf: created 1 VPC; 9 subnets, 1 IGW; 1 route_table linked to GW, 2 route table association
+for stack of APP subnets and ALB; 1 load balancer; 1 RDS db instance, a subnet group for it,
+security group for RDS.
+A new docker image was created for the ECS task: dockerfile and the script it uses are located in Docker
+folder. Container definition includes the link (reference) to the docker image in my dockerhub.
+The login details for the database are set up as variables (all variables are available in variables.tf file);
+the password does not have value: it's required to set it up during "apply".
+The login details used for the db connection check are set up in container_definitions file (task.json)
+These details are set up as environment variables that will be moved to the container and used by
+python script through "os" library.
+It's expected that the login details for AWS account access are exported (export AWS_ACCESS_KEY_ID="value"
+export AWS_SECRET_ACCESS_KEY="value")
+The task should work properly; didn't have time to finish "ECS stack"
+Have a good day!
